@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mira Mogare</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#020617,#0f172a,#111827);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== BACKGROUND EFFECT ===== */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 15% 20%, rgba(56,189,248,.15), transparent 20%),
+    radial-gradient(circle at 85% 15%, rgba(168,85,247,.15), transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(236,72,153,.12), transparent 20%);
+    z-index:-1;
+    animation:move 8s infinite alternate;
+}
+
+@keyframes move{
+    from{transform:translateY(0);}
+    to{transform:translateY(-30px);}
+}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+nav a{
+    color:#e2e8f0;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* ===== HERO ===== */
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+    padding:130px 8% 60px;
+}
+
+.hero h4{
+    color:#38bdf8;
+    font-size:18px;
+}
+
+.hero h1{
+    font-size:62px;
+    line-height:1.1;
+    margin:12px 0;
+}
+
+.hero h1 span{
+    color:#38bdf8;
+}
+
+.hero p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin:18px 0;
+    max-width:600px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#38bdf8,#8b5cf6);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.photo-box{
+    width:320px;
+    height:430px;
+    border-radius:25px;
+    overflow:hidden;
+    border:3px solid #38bdf8;
+    box-shadow:0 0 35px rgba(56,189,248,.4);
+    animation:float 4s ease-in-out infinite;
+}
+
+.photo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* ===== SECTION ===== */
+section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    color:#38bdf8;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(56,189,248,.2);
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:#fff;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+    text-align:center;
+}
+
+.skills span{
+    display:inline-block;
+    margin:10px;
+    padding:12px 18px;
+    background:#0f172a;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.skills span:hover{
+    background:#38bdf8;
+    color:black;
+    transform:scale(1.08);
+}
+
+/* ===== TIMELINE ===== */
+.timeline{
+    border-left:3px solid #38bdf8;
+    padding-left:25px;
+}
+
+.timeline .item{
+    margin-bottom:25px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:25px;
+    background:black;
+    color:#94a3b8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.photo-box{
+    margin:auto;
+}
+
+nav{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">M<span>M.</span></div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+<div>
+<h4>Creative Developer • Java Enthusiast</h4>
+
+<h1>Hello, I'm <span>Mira Mogare</span></h1>
+
+<p>
+I build modern, impactful and real-world solutions using technology.
+My focus is not only coding — but solving real-life problems with logic,
+design, and innovation.
+</p>
+
+<p>
+I specialize in Java, Web Development, Data Analysis, UI/UX Design,
+and problem solving to create digital experiences that are powerful,
+beautiful, and user-friendly.
+</p>
+
+<a href="#projects" class="btn">Explore My Work</a>
+</div>
+
+<div class="photo-box">
+<img src="mira.jpg" alt="Mira">
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<h2 class="title">About Me</h2>
+
+<div class="card">
+<p>
+I am a Computer Engineering student passionate about building meaningful products.
+I enjoy solving complex problems using Java and DSA while designing attractive user interfaces.
+I believe in continuous learning, teamwork, creativity, and turning ideas into reality.
+</p>
+
+<br>
+
+<p>
+My goal is to become a Software Engineer who creates innovative technology
+that improves people's lives and solves real-world challenges.
+</p>
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+
+<h2 class="title">Education Journey</h2>
+
+<div class="timeline">
+
+<div class="item">
+<h3>B.Tech in Computer Engineering</h3>
+<p>Rajarambapu Institute of Technology, Islampur</p>
+<p>Expected 2028 • CGPA: 9.31</p>
+</div>
+
+<div class="item">
+<h3>Class XII (HSC)</h3>
+<p>shrimati Indira Gandhi Madhyamik Vidyalay PethVadgaon ,Kolhapur</p>
+<p>2023 • 77.33%</p>
+</div>
+
+<div class="item">
+<h3>Class X (SSC)</h3>
+<p>Chougule High School, Khochi</p>
+<p>Strong Academic Foundation</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+<h2 class="title">Skills & Technologies</h2>
+
+<div class="skills">
+<span>Java</span>
+<span>Python</span>
+<span>C</span>
+<span>DSA</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Bootstrap</span>
+<span>Tailwind</span>
+<span>SQL</span>
+<span>Data Science</span>
+<span>Pandas</span>
+<span>NumPy</span>
+<span>Matplotlib</span>
+<span>UI/UX</span>
+<span>Communication</span>
+<span>Leadership</span>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+<h2 class="title">Featured Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🤖 AI vs Real Image Detector</h3>
+<p><b>Problem:</b> AI-generated fake images are increasing online.</p>
+<p><b>Solution:</b> Developed a machine learning system to detect fake AI images.</p>
+<p><b>Impact:</b> Builds trust in digital media.</p>
+</div>
+
+<div class="card">
+<h3>🐍 SnakePedia</h3>
+<p><b>Problem:</b> Lack of snake awareness in rural areas.</p>
+<p><b>Solution:</b> Web platform with snake information, first aid and safety tips.</p>
+<p><b>Impact:</b> Can save lives through awareness.</p>
+</div>
+
+<div class="card">
+<h3>🧍 Smart Posture Correction Device</h3>
+<p><b>Problem:</b> Bad posture causes back pain.</p>
+<p><b>Solution:</b> Real-time posture detection system using sensors and alerts.</p>
+<p><b>Working:</b> Vibrates when posture becomes unhealthy.</p>
+</div>
+
+<div class="card">
+<h3>🚨 Women Safety Alert App</h3>
+<p><b>Problem:</b> Need fast help in emergencies.</p>
+<p><b>Solution:</b> One-tap SOS app with live location sharing.</p>
+<p><b>Impact:</b> Faster emergency response.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY HIRE -->
+<section>
+
+<h2 class="title">Why Hire Me?</h2>
+
+<div class="grid">
+
+<div class="card"><h3>✔ Strong Java & DSA</h3></div>
+<div class="card"><h3>✔ Real Project Experience</h3></div>
+<div class="card"><h3>✔ Creative UI/UX Mindset</h3></div>
+<div class="card"><h3>✔ Fast Learner</h3></div>
+<div class="card"><h3>✔ Teamwork & Communication</h3></div>
+<div class="card"><h3>✔ Problem Solver</h3></div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="card">
+<p>📧 Email: miramogare63@gmail.com</p>
+<p>📞 Phone: 9730889590</p>
+<p>📍 Maharashtra, India</p>
+<p>💼 Open for Internships & Opportunities</p>
+<p>🌐 LinkedIn:https://www.linkedin.com/in/mira-mogare-54984133b </p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Mira Mogare
+</footer>
+
+</body>
+</html>
+
